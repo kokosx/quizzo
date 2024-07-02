@@ -1,5 +1,6 @@
 import TriviaApi from "@/api/trivia";
 import Quiz from "./Quiz";
+import Link from "next/link";
 
 type Props = {
   searchParams: {
@@ -17,7 +18,14 @@ const page = async ({ searchParams }: Props) => {
   );
   if (quiz.response_code !== 0) {
     const message = TriviaApi.resolveResponseCode(quiz.response_code);
-    return <div>{message}</div>;
+    return (
+      <div className="flex flex-col gap-y-2">
+        <span>{message}</span>
+        <Link href="/" className="btn btn-secondary">
+          Go back
+        </Link>
+      </div>
+    );
   }
 
   return (
