@@ -1,7 +1,7 @@
 "use client";
 
 import { TriviaBooleanQuestion } from "@/api/trivia";
-import { sanitize } from "dompurify";
+import { sanitize } from "isomorphic-dompurify";
 import Link from "next/link";
 
 type Props = {

@@ -3,6 +3,7 @@
 import { TriviaBooleanQuestion } from "@/api/trivia";
 import { useState } from "react";
 import Results from "./Results";
+import { sanitize } from "isomorphic-dompurify";
 
 type Props = {
   questions: TriviaBooleanQuestion[];
@@ -38,10 +39,11 @@ const Quiz = ({ questions }: Props) => {
 
   return (
     <div className="flex flex-col gap-y-4 items-center">
-      <p>
-        {questions[currentQuestion]?.question ?? "XD"}
-        qui.
-      </p>
+      <p
+        dangerouslySetInnerHTML={{
+          __html: sanitize(questions[currentQuestion]?.question),
+        }}
+      ></p>
       <div className="space-x-4">
         <button onClick={() => handleAnswer(false)} className="btn btn-error">
           False

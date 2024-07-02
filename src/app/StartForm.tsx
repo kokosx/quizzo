@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { TriviaCategory, TriviaDifficulties } from "../api/trivia";
+import { TriviaCategory, TriviaDifficulties } from "@/api/trivia";
 import { useRouter } from "next/navigation";
 
 type Props = {
